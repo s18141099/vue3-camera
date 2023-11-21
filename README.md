@@ -1,40 +1,65 @@
-# vue3-camera
+# Vue3 Camera Component
 
-This template should help get you started developing with Vue 3 in Vite.
+## Introduction
 
-## Recommended IDE Setup
+**vue3-camera** is a simple Vue 3 component designed to integrate webcam functionality into Vue applications.
+Easily capture images from the user's webcam with minimal configuration.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Features
 
-## Type Support for `.vue` Imports in TS
+- **Easy Integration**: Seamlessly integrate webcam functionality into your Vue 3 projects.
+- **Capture Images**: Capture images from the user's webcam.
+- **Customizable**: Customize the component to fit your application's styling and requirements.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Installation
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+npm install vue3-camera
 ```
 
-### Compile and Hot-Reload for Development
+## Usage
 
-```sh
-npm run dev
+1. Import the `Vue3Camera` component into your Vue file.
+
+    ```ts
+    <script setup lang="ts">
+    import Camera from "vue3-camera"]
+    </script>
+    ```
+
+2. Use the `Vue3Camera` component in your template.
+
+    ```html
+    <template>
+        <Camera @on-snapshot="onSnapshot" facing-mode="environment" :grid-line="true" />
+    </template>
+    ```
+
+3. Handle the event for image capture in your methods.
+
+    ```ts
+    const onSnapshot = (base64: string) => {
+        console.log(base64)
+    }
+    ```
+
+## Props
+
+- **facing-mode**: Width of the video element (default: "environment").
+- **grid-line**: gridLIne element.
+
+## Events
+
+- **on-snapshot**: Triggered when an image is captured. Returns the captured image data.
+
+```html
+<Camera @on-snapshot="onSnapshot"/>
 ```
 
-### Type-Check, Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Contribution
+
+Contributions are welcome! Please open an issue or submit a pull request.
