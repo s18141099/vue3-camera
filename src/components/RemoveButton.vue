@@ -13,7 +13,7 @@ const onSnapshot = () => {
 
 <template>
     <div class="snapshot" @click="onSnapshot" @contextmenu="(e) => { e.preventDefault() }">
-        <div class="snapshot-inline" @contextmenu="(e) => { e.preventDefault() }"></div>
+        <button class="snapshot-inline" @contextmenu="(e) => { e.preventDefault() }"></button>
     </div>
 </template>
 

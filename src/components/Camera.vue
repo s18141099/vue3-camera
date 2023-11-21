@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue"
+
 import Camera from "@/components/camera"
-
-import Button from "@/components/Button.vue"
 import Grid from "@/components/Grid.vue"
+import RemoveButton from "@/components/RemoveButton.vue"
 
-const shutterSpeed = 300
+const shutterSpeed = 1000
 let camera: Camera
 
 const video = ref<HTMLVideoElement>()
@@ -28,20 +28,20 @@ const onSnapshot = () => {
     isTaking.value = true
 
     gridColor.value = "rgba(255, 255, 255, 0)"
-    backgroundColor.value = "rgba(45, 45, 45)"
+    backgroundColor.value = "rgb(0, 0, 0)"
     reloadKey.value++
+
+    const dataUrl = camera.snapshot()
+    emits("onSnapshot", dataUrl || "")
 
     setTimeout(() => {
         gridColor.value = "rgba(255, 255, 255, 0.473)"
         backgroundColor.value = ""
         reloadKey.value++
-    }, shutterSpeed * 0.3)
+    }, shutterSpeed * 0.1)
 
     setTimeout(() => {
         isTaking.value = false
-
-        const dataUrl = camera.snapshot()
-        emits("onSnapshot", dataUrl || "")
     }, shutterSpeed)
 }
 
@@ -62,7 +62,10 @@ onMounted(async () => {
     <div id="camera">
         <video ref="video" width="1" height="1" autoplay></video>
         <Grid v-if="gridLine" :grid-color="gridColor" :background-color="backgroundColor" :key="reloadKey" />
-        <Button class="Button" @on-snapshot="onSnapshot" />
+
+        <div class="bottom">
+            <RemoveButton class="RemoveButton" @on-snapshot="onSnapshot" />
+        </div>
     </div>
 </template>
 
@@ -77,19 +80,25 @@ body,
 <style scoped>
 video {
     object-fit: contain;
-    width: -webkit-fill-available;
+    width: 100vw;
+    height: 100vh;
 }
 
 #camera {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 }
 
-.Button {
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
+    width: 100vw;
     bottom: 20px;
 }
 </style>

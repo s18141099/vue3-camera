@@ -23,13 +23,13 @@ const gridLine = `1px 1px 1px 0px ${gridColor}`
     flex-wrap: wrap;
     min-height: -webkit-fill-available;
     min-width: -webkit-fill-available;
-    background-color: v-bind(backgroundColor);
-    transition: 90ms;
+    background: radial-gradient(v-bind(backgroundColor), rgba(0, 0, 0, 0.575));
+    transition: 1000ms;
 }
 
 .grid {
-    min-height: calc(100% / 3);
-    min-width: calc(100% / 3);
+    min-height: calc(100vh / 3);
+    min-width: calc(100vw / 3);
     box-shadow: v-bind(gridLine);
 }
 </style>
