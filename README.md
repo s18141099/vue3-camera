@@ -1,6 +1,8 @@
-# Vue3 Camera Component
+# Vue3 Camera
 
 ## Introduction
+
+![demo](./demo.jpg)
 
 **vue3-camera** is a simple Vue 3 component designed to integrate webcam functionality into Vue applications.
 Easily capture images from the user's webcam with minimal configuration.
@@ -23,7 +25,7 @@ npm install vue3-camera
 
     ```ts
     <script setup lang="ts">
-    import Camera from "vue3-camera"]
+    import Camera from "vue3-camera"
     </script>
     ```
 
@@ -45,8 +47,8 @@ npm install vue3-camera
 
 ## Props
 
-- **facing-mode**: Width of the video element (default: "environment").
-- **grid-line**: gridLIne element.
+- **facing-mode**: "environment" | "user" (default: "environment").
+- **grid-line**: boolean.
 
 ## Events
 

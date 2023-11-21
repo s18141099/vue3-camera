@@ -1,6 +1,6 @@
 {
   "name": "vue3-camera",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "main": "./dist/index.umd.js",
   "module": "./dist/index.mjs",
@@ -15,6 +15,13 @@
       "types":"./dist/index.d.ts"
     }
   },
+  "keywords": [
+    "vue",
+    "vue3",
+    "camera",
+    "webcam",
+    "webcamera"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
