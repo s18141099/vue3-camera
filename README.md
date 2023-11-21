@@ -1,8 +1,8 @@
 # Vue3 Camera
 
-## Introduction
-
 ![demo](./demo.jpg)
+
+## Introduction
 
 **vue3-camera** is a simple Vue 3 component designed to integrate webcam functionality into Vue applications.
 Easily capture images from the user's webcam with minimal configuration.
