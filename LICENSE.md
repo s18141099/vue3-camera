@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Kanon Takahashi
+Copyright (c) 2023 s18141099
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
